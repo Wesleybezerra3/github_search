@@ -27,8 +27,8 @@ header{
 }
 input{
     padding: 15px;
-    width: 60%;
     font-size: 1.2rem;
+    width: 600px;
     font-family: monospace;
     border-radius: 10px;
     border: none;
@@ -47,7 +47,7 @@ input:hover{
 .searchBtn{
     margin-top: 20px;
     padding: 10px;
-    width: 60%;
+    width: 600px;
     font-size: 1.2rem;
     font-family: monospace;
     font-weight: bolder;
@@ -58,4 +58,13 @@ input:hover{
     outline: none;
     transition: 0.8s;
     cursor: pointer;
+}
+
+@media (max-width: 450px){
+   .searchBtn{
+    width: 95%;
+   }
+   input{
+    width: 95%;
+   }
 }

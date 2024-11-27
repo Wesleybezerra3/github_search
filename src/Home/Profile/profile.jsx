@@ -4,6 +4,14 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 export function Profile({ userRes, repos }) {
+
+  // Verifica se os dados do usuário estão disponíveis
+  if (!userRes) {
+    console.log("Dados do usúario não disponivel");
+    // Retorna para interromper a renderização se os dados não estiverem prontos
+    return null;
+  }
+
   // Estado para controlar a visibilidade do perfil do usuário
   const [isVisible, setIsVisible] = useState(false);
 
@@ -13,21 +21,13 @@ export function Profile({ userRes, repos }) {
     if (userRes) {
       setIsVisible(true);
     }
-  }, [userRes, repos]); // Executa o efeito apenas quando userRes muda
-
-  // Verifica se os dados do usuário estão disponíveis
-  if (!userRes || !userRes) {
-    console.log("Dados do usúario não disponivel");
-    // Retorna para interromper a renderização se os dados não estiverem prontos
-    return;
-  }
+  }, [userRes]); // Executa o efeito apenas quando userRes muda
 
   return (
     <>
       <div
-        className="containerProfile"
+        className={`containerProfile ${isVisible ? 'visible':''}`}
         //
-        style={{ display: isVisible ? "block" : "none" }}
       >
         <div className="headerProfile">
           <button
@@ -43,11 +43,15 @@ export function Profile({ userRes, repos }) {
 
         <section className="containerData">
           <div className="containerInfo">
+            
             <img src={userRes.avatar_url} alt="" />
-            <a href={userRes.html_url} target="_blank">
-              <h1>{userRes.login}</h1>
-            </a>
-            <p>{userRes.bio}</p>
+
+            <div className="containerBioName">
+              <a href={userRes.html_url} target="_blank">
+                <h1>{userRes.login}</h1>
+              </a>
+              <p>{userRes.bio}</p>
+            </div>
           </div>
 
           <div className="containerRepos">
@@ -65,7 +69,7 @@ export function Profile({ userRes, repos }) {
                 </div>
               ))
             ) : (
-              <p>Sem repositórios para exibir</p>
+              <p className="alert">Sem repositórios para exibir!</p>
             )}
           </div>
         </section>
