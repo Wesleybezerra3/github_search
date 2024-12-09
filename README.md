@@ -1,8 +1,4 @@
-# React + Vite
+#Github Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicação desenvolvida com ReactJS, com o objetivo de pesquisar e exibir perfis do GitHub e seus repositórios de maneira rápida e simples. A aplicação utiliza a API do GitHub para realizar as buscas e o Axios para gerenciar as requisições.
+🔗https://github-search-seven-navy.vercel.app/
