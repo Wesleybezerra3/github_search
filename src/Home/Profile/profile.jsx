@@ -4,18 +4,9 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 export function Profile({ userRes, repos }) {
-
-  // Verifica se os dados do usuário estão disponíveis
-  if (!userRes) {
-    console.log("Dados do usúario não disponivel");
-    // Retorna para interromper a renderização se os dados não estiverem prontos
-    return null;
-  }
-
   // Estado para controlar a visibilidade do perfil do usuário
   const [isVisible, setIsVisible] = useState(false);
 
-  // useEffect é executado sempre que o valor de userRes muda
   useEffect(() => {
     // Se os dados do usuário estiverem disponíveis, torna o perfil visível
     if (userRes) {
@@ -23,16 +14,19 @@ export function Profile({ userRes, repos }) {
     }
   }, [userRes]); // Executa o efeito apenas quando userRes muda
 
+  if (!userRes) {
+    console.log("Dados do usúario não disponivel");
+    return null;
+  }
   return (
     <>
-      <div
-        className={`containerProfile ${isVisible ? 'visible':''}`}
+      <article
+        className={`containerProfile ${isVisible ? "visible" : ""}`}
         //
       >
         <div className="headerProfile">
           <button
             className="closer"
-            // Evento para alterar o estado de isVisible para false, assim ocultado o componente.
             onClick={() => {
               setIsVisible(false);
             }}
@@ -41,10 +35,9 @@ export function Profile({ userRes, repos }) {
           </button>
         </div>
 
-        <section className="containerData">
+        <div className="containerData">
           <div className="containerInfo">
-            
-            <img src={userRes.avatar_url} alt="" />
+            <img src={userRes.avatar_url} alt="Foto de perfil" />
 
             <div className="containerBioName">
               <a href={userRes.html_url} target="_blank">
@@ -59,11 +52,7 @@ export function Profile({ userRes, repos }) {
             {repos.length > 0 ? (
               repos.map((repo) => (
                 <div key={repo.id} className="repo">
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={repo.html_url} target="_blank">
                     {repo.name}
                   </a>
                 </div>
@@ -72,8 +61,8 @@ export function Profile({ userRes, repos }) {
               <p className="alert">Sem repositórios para exibir!</p>
             )}
           </div>
-        </section>
-      </div>
+        </div>
+      </article>
     </>
   );
 }

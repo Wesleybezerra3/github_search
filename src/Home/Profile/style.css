@@ -10,10 +10,11 @@
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   margin-bottom: 100px;
-  transform: scale(0.0);
+  transform: scale(0);
+  overflow: auto;
 }
-.alert{
-  color:rgb(202, 170, 26) ;
+.alert {
+  color: rgb(202, 170, 26);
   font-weight: bold;
   font-size: 1rem;
   font-family: monospace;
@@ -54,12 +55,10 @@
   margin-bottom: 20px;
 }
 
-.containerBioName>a{
-    font-size: 2rem;
-    font-family: monospace;
-   color: rgb(224, 224, 224);
-
-
+.containerBioName > a {
+  font-size: 2rem;
+  font-family: monospace;
+  color: rgb(224, 224, 224);
 }
 .containerBioName > p {
   width: 400px;
@@ -93,8 +92,8 @@
   font-size: 1.2rem;
   display: block;
 }
-.repo>a:hover{
-    text-decoration: underline;
+.repo > a:hover {
+  text-decoration: underline;
 }
 .containerRepos {
   display: flex;
@@ -106,17 +105,16 @@
   height: 600px;
   width: 50%;
 }
-.containerRepos>h2{
-    color: rgb(224, 224, 224);
-    margin-bottom: 10px;
-    font-family: monospace;
-    font-size: 2em;
-
+.containerRepos > h2 {
+  color: rgb(224, 224, 224);
+  margin-bottom: 10px;
+  font-family: monospace;
+  font-size: 2em;
 }
 .containerProfile.visible {
-  opacity: 1; 
+  opacity: 1;
   visibility: visible;
-  transform: scale(1); 
+  transform: scale(1);
 }
 
 .containerRepos::-webkit-scrollbar {
@@ -136,29 +134,29 @@
   background-color: #010409;
 }
 
-@media (max-width: 450px){
-  .containerData{
+@media (max-width: 450px) {
+  .containerData {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
   }
-  .containerInfo{
+  .containerInfo {
     flex-direction: row;
     gap: 1rem;
-    margin-left:0 ;
+    margin-left: 0;
   }
-  .containerBioName >p{
+  .containerBioName > p {
     width: 100%;
     font-size: 0.9rem;
     text-align: justify;
   }
-  .containerBioName >a{
+  .containerBioName > a {
     font-size: 1.2rem;
   }
-  .containerInfo >img{
+  .containerInfo > img {
     width: 150px;
   }
-  .containerRepos{
+  .containerRepos {
     overflow: hidden;
     width: 100%;
     margin-left: 0;
